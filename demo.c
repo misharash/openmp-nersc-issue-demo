@@ -14,17 +14,16 @@ int main(int argc, char* argv[]) {
     printf("Running with %d threads, %d iterations on each\n", n_threads, n_per_thread);
     clock_t clock_time = clock();
     #pragma omp parallel for
-    {
-        for (int t = 0; t < n_threads; t++) {
-            int s = 0, x = 0, a = 0, o = 0;
-            for (int ii = 0; ii < n_per_thread; ii++) {
-                int i = n_per_thread * t + ii;
-                s += i;
-                x ^= i;
-                a &= i;
-                o |= i;
-            }
+    for (int t = 0; t < n_threads; t++) {
+        int s = 0, x = 0, a = 0, o = 0;
+        for (int ii = 0; ii < n_per_thread; ii++) {
+            int i = n_per_thread * t + ii;
+            s += i;
+            x ^= i;
+            a &= i;
+            o |= i;
         }
     }
     printf("Elapsed time: %lf s\n", ((double)(clock() - clock_time)) / CLOCKS_PER_SEC);
+    return 0;
 }
