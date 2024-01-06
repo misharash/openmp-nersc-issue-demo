@@ -1,9 +1,7 @@
 import os
 import numpy as np
 
-N = 10**10
-
-x = np.linspace(0, np.pi, N)
+x = np.linspace(0, np.pi, 10**6)
 y = np.sin(x)
 
-os.system(f"./demo 256 {N}")
+os.system(f"./demo 256 {10**10}")
