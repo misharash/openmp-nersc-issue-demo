@@ -13,6 +13,7 @@ int main(int argc, char* argv[]) {
     int n_per_thread = atoi(argv[2]);
     printf("Running with %d threads, %d iterations on each\n", n_threads, n_per_thread);
     clock_t clock_time = clock();
+    double wtime = omp_get_wtime();
     #pragma omp parallel for
     for (int t = 0; t < n_threads; t++) {
         int s = 0, x = 0, a = 0, o = 0;
@@ -24,6 +25,7 @@ int main(int argc, char* argv[]) {
             o |= i;
         }
     }
-    printf("Elapsed time: %lf s\n", ((double)(clock() - clock_time)) / CLOCKS_PER_SEC);
+    printf("Elapsed clock time: %lf s\n", ((double)(clock() - clock_time)) / CLOCKS_PER_SEC);
+    printf("Elapsed wtime: %lf s\n", omp_get_wtime() - wtime);
     return 0;
 }
