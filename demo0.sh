@@ -12,4 +12,4 @@ export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 export OMP_NUM_THREADS=256
 
-./demo $(OMP_NUM_THREADS) $(python3 -c 'print(10**10)')
+./demo $OMP_NUM_THREADS $(python3 -c 'print(10**10)')
