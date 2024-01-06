@@ -1,4 +1,4 @@
-CFLAGS = -O0 -fopenmp
+CFLAGS = -O0 -fopenmp -Wall
 
 # this allows building on Mac and Linux
 ifeq ($(shell uname -s),Darwin)
