@@ -1,22 +1,10 @@
 import os
 import numpy as np
+from sklearn.cluster import KMeans
 
-x = np.linspace(0, np.pi, 10**7)
-y = np.sin(x)
-z = np.cos(x)
-yz = y * z
-
-filt = np.logical_and(y < 0.5, z > -0.5)
-yy = y[filt]
-zz = z[filt]
-
-idx = np.where(filt)
-yyy = y[idx]
-zzz = z[idx]
-
-np.savetxt("tmp.txt", np.column_stack((y, z))[:10**4])
-tmp = np.loadtxt("tmp.txt")
-
-print("Done with numpy")
+np.random.seed(42)
+X, Y = np.random.rand(2, 10**5, 2)
+kmeans = KMeans(n_clusters = 60, random_state = 42).fit(X)
+Y_labels = kmeans.predict(Y)
 
 os.system(f"./demo 256 {10**9}")
