@@ -7,8 +7,7 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name=openmp-issue-demo1
 
-# load cosmodesi environment
-source /global/common/software/desi/users/adematti/cosmodesi_environment.sh main
+module load python
 
 # OpenMP settings
 export OMP_PROC_BIND=spread
