@@ -15,7 +15,7 @@ export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 export OMP_NUM_THREADS=256
 
-# Limit OpenBLAS thread usage
+# Limit OpenBLAS thread usage to avoid another issue
 export OPENBLAS_NUM_THREADS=1
 
 python -u demo.py
