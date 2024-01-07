@@ -15,4 +15,9 @@ export OMP_PROC_BIND=spread
 export OMP_PLACES=threads
 export OMP_NUM_THREADS=256
 
+# Let numpy use all threads
+export NUMEXPR_MAX_THREADS=256
+# Limit OpenBLAS thread usage
+export OPENBLAS_NUM_THREADS=1
+
 python -u demo.py
