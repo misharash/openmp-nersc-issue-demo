@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
-#include <sched.h>
 #include <time.h>
 
 int main(int argc, char* argv[]) {
