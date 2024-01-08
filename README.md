@@ -13,3 +13,4 @@ At NERSC, submit a batch job with `sbatch demo1.sh`, or request an interactive o
 Either only requests 5 minutes and should finish a bit faster.
 The problem seems to be resolved by removing the `OMP_*` environment variables from `demo1.sh`.
 For me, the clock time is about 200 times larger than the wtime -- probably more overhead, but pretty good parallelism.
+Adding `OMP_PROC_BIND=spread OMP_PLACES=threads` to the command line passed to `os.system` seems to make the code run a bit faster.
