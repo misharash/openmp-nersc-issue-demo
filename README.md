@@ -13,11 +13,11 @@ At NERSC, submit a batch job with `sbatch demo1.sh`, or request an interactive o
 Either only requests 5 minutes and should finish a bit faster.
 For me, the clock time (same as in previous case) is very close to the wtime which seems to indicate the C++ code is only given one CPU core/hyperthread after `sklearn.cluster.KMeans` usage in `demo.py`.
 
-## Another issue (likely related)
+## Another issue (seems not directly related)
 You might wonder why I am setting `OPENBLAS_NUM_THREADS=1` in `demo1.sh`.
 That is because otherwise the Python script fails complaining that OpenBlas is using too many threads or allocating too many memory region.
 You can see this at NERSC by submitting a batch job with `sbatch demo2.sh`, or request an interactive one with `bash demo_interactive.sh 2`.
+This issue disappeared when I switched to `module load python` on the `main` branch.
 
 ## Remarks and warnings
-At the moment cases 1 and 2 are using the `cosmodesi` environment that might only be available to DESI members.
-Please let me know if you know another common environment or module set that would have `scikit-learn`.
+Cases 1 and 2 are using the `cosmodesi` environment that might only be available to DESI members.
