@@ -1,4 +1,4 @@
-CFLAGS = -O0 -fopenmp -Wall
+CFLAGS = -O0 -fPIC -fopenmp -Wall
 
 # this allows building on Mac and Linux
 ifeq ($(shell uname -s),Darwin)
@@ -11,15 +11,15 @@ HOMEBREW_PREFIX = /usr/local
 endif
 CC	= ${HOMEBREW_PREFIX}/opt/llvm/bin/clang
 LD	= ${HOMEBREW_PREFIX}/opt/llvm/bin/clang
-LFLAGS	= -fopenmp -lomp
+LFLAGS	= -shared -fopenmp -lomp
 else
 # default (Linux) case
 CC	= gcc
 LD	= gcc
-LFLAGS	= -lgomp
+LFLAGS	= -shared -lgomp
 endif
 
-AUNTIE	= demo
+AUNTIE	= demo.so
 AOBJS	= demo.o
 
 .PHONY: main clean
