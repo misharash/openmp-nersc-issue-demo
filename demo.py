@@ -1,4 +1,4 @@
-import os
+import subprocess
 import numpy as np
 from sklearn.cluster import KMeans
 
@@ -7,4 +7,4 @@ X, Y = np.random.rand(2, 10**5, 2)
 kmeans = KMeans(n_clusters = 60, random_state = 42).fit(X)
 Y_labels = kmeans.predict(Y)
 
-os.system(f"./demo 256 {10**8}")
+subprocess.run(("./demo", "256", str(10**8)))
