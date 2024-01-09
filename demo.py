@@ -9,9 +9,9 @@ def func():
     X = np.random.rand(10**5, 2)
     kmeans = KMeans(n_clusters = 60, random_state = 42).fit(X)
 
+if __name__ == "__main__":
+    p = Process(target = func)
+    p.start()
+    p.join()
 
-p = Process(target = func)
-p.start()
-p.join()
-
-os.system(f"./demo 256 {10**8}")
+    os.system(f"./demo 256 {10**8}")
