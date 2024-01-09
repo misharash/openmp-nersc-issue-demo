@@ -13,5 +13,5 @@ env_new = set(os.environ.items())
 print(f"{env_orig - env_new = }")
 print(f"{env_new - env_orig = }")
 
-os.environ["OMP_PLACES"] = ",".join("{" + str(i) + "},{" + str(i+128) + "}" for i in range(128))
+os.environ["OMP_PLACES"] = ""
 os.system(f"./demo 256 {10**8}")
