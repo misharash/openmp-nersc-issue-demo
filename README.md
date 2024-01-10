@@ -13,4 +13,5 @@ At NERSC, submit a batch job with `sbatch demo1.sh`, or request an interactive o
 Either only requests 5 minutes and should finish a bit faster.
 The problem seems to be resolved by compiling the code into a shared library and loading it in Python through `ctypes`.
 For me, the clock time is almost 256 times larger than the wtime -- seems like very good parallelism.
-The above was on NERSC; on Mac the program hangs unless compiled with `-O1` when it runs too fast.
+The above was on NERSC.
+On my Mac the program currently spends about 3.5 seconds clock time and 1.9 seconds wtime, the latter is rather long and agrees with the python timestamps.
