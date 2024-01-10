@@ -1,4 +1,6 @@
-CFLAGS = -O0 -fPIC -fopenmp -Wall
+CC = gcc
+LD = gcc
+CFLAGS = -O0 -fPIC -Wall
 
 # this allows building on Mac and Linux
 ifeq ($(shell uname -s),Darwin)
@@ -9,13 +11,11 @@ ifeq ($(shell uname -s),Darwin)
 ifndef HOMEBREW_PREFIX
 HOMEBREW_PREFIX = /usr/local
 endif
-CC	= ${HOMEBREW_PREFIX}/opt/llvm/bin/clang
-LD	= ${HOMEBREW_PREFIX}/opt/llvm/bin/clang
-LFLAGS	= -shared -fopenmp -lomp
+CFLAGS	+= -I$(HOMEBREW_PREFIX)/opt/libomp/include
+LFLAGS	= -shared -L$(HOMEBREW_PREFIX)/opt/libomp/lib -lomp
 else
 # default (Linux) case
-CC	= gcc
-LD	= gcc
+CFLAGS	+= -fopenmp
 LFLAGS	= -shared -lgomp
 endif
 
