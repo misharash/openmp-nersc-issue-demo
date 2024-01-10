@@ -1,4 +1,5 @@
 import ctypes
+from datetime import datetime
 import numpy as np
 from sklearn.cluster import KMeans
 
@@ -11,4 +12,6 @@ demo_lib = ctypes.cdll.LoadLibrary(args[0])
 c_args = [ctypes.cast(ctypes.create_string_buffer(s.encode()), ctypes.c_char_p) for s in args]
 c_args.append(ctypes.c_char_p(None))
 argv = (ctypes.c_char_p * len(c_args))(*c_args)
+print(datetime.now())
 demo_lib.main(ctypes.c_int(len(args)), argv)
+print(datetime.now())
