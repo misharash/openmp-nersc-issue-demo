@@ -8,7 +8,7 @@
 #SBATCH --job-name=openmp-issue-demo2
 
 # load cosmodesi environment
-source /global/common/software/desi/users/adematti/cosmodesi_environment.sh main
+source /global/common/software/desi/users/adematti/cosmodesi_environment.sh new
 
 # OpenMP settings
 export OMP_PROC_BIND=spread
