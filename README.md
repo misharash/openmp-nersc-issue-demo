@@ -15,9 +15,9 @@ For me, the clock time (same as in previous case) is very close to the wtime whi
 
 ## Another issue (seems not directly related)
 You might wonder why I am setting `OPENBLAS_NUM_THREADS=1` in `demo1.sh`.
-That is because otherwise the Python script fails complaining that OpenBlas is using too many threads or allocating too many memory region.
+That is because otherwise the Python script used to fail complaining that OpenBlas is using too many threads or allocating too many memory regions.
 You can see this at NERSC by submitting a batch job with `sbatch demo2.sh`, or request an interactive one with `bash demo_interactive.sh 2`.
-This issue disappeared when I switched to `module load python` on the `main` branch.
+This issue disappeared now with the new `cosmodesi` environment.
 
 ## Remarks and warnings
 Cases 1 and 2 are using the `cosmodesi` environment that might only be available to DESI members.
